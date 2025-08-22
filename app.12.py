@@ -32,11 +32,11 @@ det= (det/ total_det).round(3)
 fig,ax = plt.subplots(1,1,figsize=(10,6))
 ax.pie(gen.values,labels= gen.index)
 
-st.pyplot(fig)
+# st.pyplot(fig)
 fig,ax =plt.subplots (1,1,figsize = (10,6))
 ax.pie(det.values,labels=det.index)
 
-# st.pyplot(fig)
+#st.pyplot(fig)
 
 
 #treemap
@@ -49,7 +49,7 @@ fin= (filtro
 fig= px.treemap(fin ,path =[px.Constant("Total"),
                             'clas_gen',
                             'clasificacion_ofpuj'],
-                            values= 'total_recaudo')
+                            values= 'total_recaudo',color_discrete_sequence=["#52154E","#DAE0F2","#F9CFF2"])
 st.plotly_chart(fig)
     
 # Pie chart con Plotly Express (clasificación general)
