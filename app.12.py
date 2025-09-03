@@ -2,8 +2,12 @@ import streamlit as st
 import pandas as pd
 import matplotlib.pyplot as plt
 import plotly.express as px
+import geopandas as gpd
+
 
 data= pd.read_csv('munis.csv')
+gdf= gpd.read_parquet('muns.parquet')
+
 
 st.title("Primera aplicación")
 
@@ -62,4 +66,8 @@ fig_gen = px.pie(
 )
 st.plotly_chart(fig_gen)
 
-
+## mapa
+filtro2 = gdf[gdf['entidad'] == mun][['codigo_alt','geometry']]
+fig, ax =plt.subplots(1,1)
+filtro2.plot(ax=ax)
+st.pyplot(fig)
